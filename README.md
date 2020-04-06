@@ -11,12 +11,15 @@ Avoid herb plants from running dry. Water them automatically with a small pump w
 * Wiring, resistors, LEDs, a power source (I use [a 5.5mm terminal](https://www.amazon.de/gp/product/B009PH1J5Y/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) wired to a power bank) etc.
 
 # Breadboard prototype
-[ picture ]
+## Without NodeMCU
+![Sketch without NodeMCU](/images/sketch_without_nodemcu.PNG)
+## With NodeMCU
+![Sketch with NodeMCU](/images/sketch_with_nodemcu.PNG)
 
 * LED (solid): Pump ran more than x seconds without reaching target moisture level; empty water container?
 * LED (blink): Board is in OTA update mode
-* Button left: Reset
-* Button right: OTA mode; hold down during boot will turn delay 'loop' by 3 minutes so you have time for starting the sketch upload
+* Button top: Reset
+* Button bottom: OTA; hold during boot triggers 3 min delay for OTA flash
 
 # What the code does
 * Connect to WiFi & MQTT
