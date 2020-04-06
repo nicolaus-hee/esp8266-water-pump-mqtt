@@ -1,10 +1,7 @@
 # esp8266-water-pump-mqtt
-Controls a small water pump based on readings of a moisture sensor.
+Avoid herb plants from running dry. Water them automatically with a small pump whenever needed. Monitor moisture readings and receive notifications when water reservoir is empty, both through [openHAB](https://openhab.org).
 
 [ picture ]
-
-# Objective
-Avoid herb plants from running dry. Water them automatically whenever needed. Monitor moisture readings and receive notifications when water reservoir is empty, both through [openHAB](https://openhab.org).
 
 # What you need
 * ESP8266 (I used a [NodeMCU v2](https://www.amazon.de/gp/product/B0754HWZSQ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1))
@@ -16,12 +13,18 @@ Avoid herb plants from running dry. Water them automatically whenever needed. Mo
 # Breadboard prototype
 [ picture ]
 
+* LED (solid): Pump ran more than x seconds without reaching target moisture level; empty water container?
+* LED (blink): Board is in OTA update mode
+* Button left: Reset
+* Button right: OTA mode; hold down during boot will turn delay 'loop' by 3 minutes so you have time for starting the sketch upload
+
 # What the code does
 * Connect to WiFi & MQTT
 * Read moisture level (n times, build average)
 * If moisture < threshold, start water pump
 * Stop pump when moisture threshold reached
-* Publish readings, pump status changes to MQTT topics
+* Publish readings & pump status changes to MQTT topics
+* Go into deep sleep, wake up after n minutes and repeat
 
 # openHAB integration
 ## Channels & items
@@ -36,4 +39,3 @@ Avoid herb plants from running dry. Water them automatically whenever needed. Mo
 # To do
 - [ ] Low voltage warning
 - [ ] Remote interaction (e.g. flush, change settings)
-- [ ] OTA update capability
