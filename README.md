@@ -3,6 +3,9 @@ Avoid herb plants from running dry. Water them automatically with a small pump w
 
 ![My herb bed](/images/herb_bed.jpg)
 
+# Consts tests:
+ich erstelle die Branch constgemm_readme_edits und commite diese 2 Zeilen
+
 # What you need
 * ESP8266 (I used a [NodeMCU v2](https://www.amazon.de/gp/product/B0754HWZSQ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1))
 * Moisture sensor (I used [this one](https://www.amazon.de/gp/product/B07CNRJN8W/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1))
