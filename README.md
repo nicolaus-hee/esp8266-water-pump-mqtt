@@ -98,3 +98,4 @@ The result as displayed in openHAB's 'Paper UI':
 # To do
 - [ ] Low voltage warning
 - [ ] Remote interaction (e.g. flush, change settings)
+- [ ] Empty water reservoir warning
