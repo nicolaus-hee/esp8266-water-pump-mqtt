@@ -20,8 +20,8 @@ With NodeMCU
 # What the code does
 * Connect to WiFi & MQTT
 * Read moisture level (x times, build average)
-~~* If moisture < threshold, start water pump~~
-~~* Stop pump when moisture threshold reached~~
+*~~If moisture < threshold, start water pump~~
+*~~ Stop pump when moisture threshold reached~~
 * Publish readings & pump status changes to MQTT topics
 * Check for MQTT command to start pump
 * If pump command received, enable pump for 5 seconds*
