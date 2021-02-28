@@ -11,7 +11,7 @@ Avoid herb plants from running dry. Water them automatically with a pump wheneve
 * Voltage regulator if your pump needs a Vcc incompatible with your board (I used [this one](https://www.amazon.de/DECARETA-Converter-Einstellbar-Wandler-MP1584EN/dp/B07QMCW2LY/ref=sr_1_3?dchild=1&qid=1614499324&sr=8-3))
 * Wiring, resistors, LEDs, a power source (I use [a 5.5mm terminal](https://www.amazon.de/gp/product/B009PH1J5Y/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)) etc.
 
-# Breadboard prototype
+# Board
 <img src="/images/board_web.jpg" width="600" alt="Sketch including NodeMCU">
 <img src="/images/sketch_with_nodemcu.png" width="600" alt="Sketch including NodeMCU">
 
@@ -40,10 +40,7 @@ stat/water_pump/STATUS | { "MOISTURE":"50", "PUMP_VCC":"OFF", "WATER_LEVEL":"OK"
 cmnd/water_pump/FLUSH | any | will turn on pump for 3 seconds
 cmnd/water_pump/FLUSH2 | any | will pump until target moisture reached
 
-```
-Topic: stat/water_pump/STATUS
-Payload: {"MOISTURE":"57","PUMP_VCC":"OFF","WATER_LEVEL":"OK"}
-```
+Interpreting status messages:
 * MOISTURE: Last reading (0 = dry, 100 = wet)
 * PUMP_VCC: Pump ON or OFF?
 * WATER_LEVEL: OK or WARNING
@@ -72,7 +69,7 @@ DateTime water_pump_last_update "Last update [%1$td.%1$tm.%1$tY / %1$tH:%1$tM]" 
 DateTime water_pump_last_flush "Last flush [%1$td.%1$tm.%1$tY / %1$tH:%1$tM]" { channel="mqtt:topic:broker:water_pump:water_pump_last_flush" }
 ```
 
-## Sitemap
+## openHAB sitemap
 ```
 Default item=water_pump_moisture_level
 Text item=water_pump_power
@@ -83,7 +80,7 @@ Chart item=water_pump_moisture_level label="Moisture last 24h" period=D refresh=
 Chart item=water_pump_moisture_level label="Moisture last 1h" period=h refresh=1000
 ```
 
-## Rules
+## openHAB rules
 To get a push notification in the openHAB app when the water reservoir is assumed empty:
 ```
 rule "water pump reservoir empty"
@@ -112,6 +109,6 @@ then
 end
 ```
 
-## Screenshot
+## openHab screenshot
 The result as displayed in openHAB's 'Paper UI':
 ![openhab screenshot](/images/openhab_screenshot.JPG)
