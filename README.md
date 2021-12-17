@@ -68,6 +68,12 @@ String water_pump_water_level "Pump water level warning" {channel="mqtt:topic:br
 DateTime water_pump_last_update "Last update [%1$td.%1$tm.%1$tY / %1$tH:%1$tM]" { channel="mqtt:topic:broker:water_pump:water_pump_last_update" }
 DateTime water_pump_last_flush "Last flush [%1$td.%1$tm.%1$tY / %1$tH:%1$tM]" { channel="mqtt:topic:broker:water_pump:water_pump_last_flush" }
 ```
+Note: Google Assistant natively supports [sprinklers](https://developers.google.com/assistant/smarthome/guides/sprinkler). If you'd like to use the water pump via Google Assistant, expose the `water_pump_power` item to openHAB cloud and tag it like so:
+
+```
+Switch water_pump_power "Pump power" {channel="mqtt:topic:broker:water_pump:water_pump_power", ga="Sprinkler"}
+```
+
 
 ## openHAB sitemap
 ```
